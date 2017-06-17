@@ -1,0 +1,6 @@
+<h2> This is menu yah</h2>
+<div class="btn btn-group" >
+  <% @sections.each do |section| %>
+    <%= link_to section.name, menu_path(section_id: section.id), class: "btn btn-secondary" %>
+  <% end %>
+</div>

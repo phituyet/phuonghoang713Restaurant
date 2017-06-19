@@ -15,6 +15,8 @@ class FoodItemsController < ApplicationController
   # GET /food_items/new
   def new
     @food_item = FoodItem.new
+  # rescue e
+  #   Rails.logger.errors(e.backtrace)
   end
 
   # GET /food_items/1/edit
@@ -25,7 +27,9 @@ class FoodItemsController < ApplicationController
   # POST /food_items.json
   def create
     @food_item = FoodItem.new(food_item_params)
-
+  # rescue e
+  #   Rails.logger.errors(e.backtrace)
+  #  raise "hello log"
     respond_to do |format|
       if @food_item.save
         format.html { redirect_to @food_item, notice: 'Food item was successfully created.' }

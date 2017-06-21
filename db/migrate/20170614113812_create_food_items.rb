@@ -5,7 +5,7 @@ class CreateFoodItems < ActiveRecord::Migration[5.1]
       t.text :description
       t.decimal :price
       t.string :image_url
-#      t.references :section, foreign_key: true
+      t.references :section, foreign_key: true
 
       t.timestamps
     end

@@ -20,10 +20,11 @@ ActiveRecord::Schema.define(version: 20170621014048) do
     t.text "description"
     t.decimal "price"
     t.string "image_url"
+    t.bigint "section_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "section_id"
     t.string "url"
+    t.index ["section_id"], name: "index_food_items_on_section_id"
   end
 
   create_table "sections", force: :cascade do |t|
@@ -32,4 +33,5 @@ ActiveRecord::Schema.define(version: 20170621014048) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "food_items", "sections"
 end

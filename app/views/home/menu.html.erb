@@ -1,6 +1,8 @@
 <h2> This is menu yah</h2>
-<div class="btn btn-group" >
+<ul class="nav nav-pills" >
   <% @sections.each do |section| %>
-    <%= link_to section.name, menu_path(section: section.id), class: "btn btn-secondary" %>
+    <li class='nav-item'>
+    <%= link_to section.name, menu_path(section: section.name), class: "nav-link #{'active' if params[:section] == section.name}" %>
+    </li>
   <% end %>
-</div>
+</ul>

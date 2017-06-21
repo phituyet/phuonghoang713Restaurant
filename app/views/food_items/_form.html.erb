@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= form.label :section_id %>
-    <%= form.text_field :section_id, id: :food_item_section_id %>
+    <%= form.select :section_id, Section.all.map{|s| [s.name, s.id]} %>
   </div>
 
   <div class="actions">

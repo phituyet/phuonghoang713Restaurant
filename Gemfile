@@ -34,6 +34,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 # bootstrap
 gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
+gem "font-awesome-rails"
+gem "faker"
 # sprockets-rails
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 

@@ -8,9 +8,9 @@ sections = Section.all
 puts "FoodItem.all.count #{FoodItem.all.count} "
 puts "sections.length =  #{sections.length} "
 
-if FoodItem.all.count < 10
+if FoodItem.all.count == 0
   sections.each do |section|
-    10.times do |i|
+    6.times do |i|
       name = Faker::Food.ingredient
       puts "generate food [#{i}] #{name} "
       food_item = FoodItem.create({

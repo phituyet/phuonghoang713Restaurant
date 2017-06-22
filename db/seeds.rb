@@ -1,5 +1,5 @@
 if Section.count == 0
-  %w(Breakfast Lunch Dinner Drinks).each do |name|
+  %w(ALL Breakfast Lunch Dinner Drinks).each do |name|
     Section.create!(name: name)
   end
 end
@@ -10,9 +10,10 @@ puts "sections.length =  #{sections.length} "
 
 if FoodItem.all.count == 0
   sections.each do |section|
+    next if section.name == "ALL"
     6.times do |i|
       name = Faker::Food.ingredient
-      puts "generate food [#{i}] #{name} "
+      puts "generate food [#{i}] #{name}  section name #{section.name}"
       food_item = FoodItem.create({
         name: name,
         section: section,

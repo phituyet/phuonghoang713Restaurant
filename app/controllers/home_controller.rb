@@ -6,8 +6,13 @@ class HomeController < ApplicationController
 
     if params[:section].present?
       @section = Section.where(name: params[:section]).first
-      @food_items = @section.food_items
+
       puts "[hoanggpn]param  section is #{@section.name}"
+      if @section.name != "ALL"
+        @food_items = @section.food_items
+      else
+        @food_items = FoodItem.all
+      end
     else
       puts "[hoanggpn]param all section"
       @food_items = FoodItem.all

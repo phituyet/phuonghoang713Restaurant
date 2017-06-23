@@ -37,6 +37,11 @@
       <%= food_item.price %>
       <text>VND</text>
     </div>
+    <div class="card-header">
+      <td>
+        <%= link_to "Add to order", new_order_path(food_item_id: food_item.id) %>
+      </td>
+    </div>
     <div class="card-block">
       <%= image_tag food_item.image_url_or_default %>
     </div>

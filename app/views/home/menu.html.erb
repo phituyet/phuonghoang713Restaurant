@@ -5,16 +5,41 @@
     <li class='nav-item'>
     <%= link_to section.name, menu_path(section: section.name), class: "nav-link #{'active' if params[:section] == section.name}" %>
     </li>
+
   <% end %>
 </ul>
+
+<br >
+
+<div class="card card-block">
+  <%= form_tag menu_path, method: 'get' do %>
+    <%= hidden_field_tag :section, params[:section] %>
+    <div class='form-inline'>
+      <label>Sort By  </label>
+      <div class='form-group'>
+        <%= select_tag :sort_colum, options_for_select([['Name', 'name'], ['Price', 'price']]), class: 'form-control' %>
+      </div>
+      <div class='form-group'>
+        <%= select_tag :sort_direction, options_for_select([['Ascending', 'asc'], ['Descending', 'desc']]), class: 'form-control' %>
+      </div>
+      <%= submit_tag 'Sort', class: "btn btn-secondary"%>
+    </div>
+  <% end %>
+</div>
 
 <% @food_items.each do |food_item| %>
   <div class="card">
     <div class="card-header">
       <%= food_item.name %>
     </div>
+    <div class="card-header">
+      <text>$</text>
+      <%= food_item.price %>
+      <text>VND</text>
+    </div>
     <div class="card-block">
       <%= image_tag food_item.image_url_or_default %>
     </div>
   </div>
+  <br>
 <% end %>

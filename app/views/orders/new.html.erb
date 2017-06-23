@@ -1,7 +1,7 @@
 <h1> find me (Order food item ) on  view/order</h1>
 <h2> Order for <%=@food_item.name %></h2>
 
-<%= form_for @order, url: orders_path(food_item_id: @food_item.id) do |f| %>
+<%= form_for  [@food_item, @order] do |f| %>
   <% if @order.errors.present? %>
     <div class="alert alert-danger">
       <%= @order.errors.full_messages.to_sentence %>
